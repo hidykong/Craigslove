@@ -1,0 +1,114 @@
+body {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	color: #222222;
+	width:1440px;
+	margin: 0 auto;
+	font-size:13px;
+}
+/* Typography resets */
+div,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  direction: ltr; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;			  
+  text-rendering: optimizeLegibility;
+  margin-bottom: 0.5em;
+  line-height: 1.2125em; 
+}
+
+/* micro clearfix hack by Nicolas Gallagher @ http://nicolasgallagher.com/micro-clearfix-hack/ */
+.cf:before,.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+#footnotes {
+	font-size:12px;
+}
+.block {
+	width:250px;
+	float:left;
+}
+
+.block circle {
+	fill:yellow;
+}
+
+#opacity circle {
+	opacity:0.5;
+}
+
+#key {
+	margin-left:100px;
+	float:left;
+}
+#purple {
+	background-color:#393b79;
+	width:40px;
+	height:25px;
+	margin:10px 0 20px;		
+}
+#swap {
+	font-family: 'Open Sans', sans-serif;
+	border: 2px solid #393b79;
+	padding: 7px 14px;
+	margin: 10px 0;
+}
+button:hover {
+    background-color:#393b79;
+    color:#f2f2f2;
+}
+circle {
+	stroke:black;
+	stroke-width: 3;
+}
+rect:hover {
+	fill: red;
+}	
+svg {
+	margin:10px 0;
+}
+.states {
+	fill: none;
+	stroke: #fff;
+	stroke-linejoin: round;
+}
+.axis path,
+.axis line {
+  fill: none;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-family:'Open Sans', sans-serif;
+	font-size: 11px;
+}
+
+.x.axis path {
+  display: none;
+}
