@@ -1,14 +1,15 @@
-latitude,longitude,city,state,w2m,w2w,m2w,m2m,keyword
-40.922326,-72.637078,Holtsville,New York,10,1,10,2,hello
-18.165273,-66.722583,Adjuntas,Puerto Rico,15,2,9,4,this
-18.393103,-67.180953,Aguada,Puerto Rico,16,3,8,6,is
-18.455913,-67.14578,Aguadilla,Puerto Rico,20,4,7,8,for
-18.172947,-66.944111,Maricao,Puerto Rico,36,5,6,10,practice
-18.288685,-67.139696,Anasco,Puerto Rico,10,6,5,12,yes
-18.279531,-66.80217,Angeles,Puerto Rico,15,7,4,14,now
-18.450674,-66.698262,Arecibo,Puerto Rico,16,8,3,16,is
-18.444792,-66.640678,Bajadero,Puerto Rico,20,9,2,18,a
-18.447092,-66.544255,Barceloneta,Puerto Rico,11,10,1,20,good
-38.267429,-85.623671,Louisville,Kentucky,36,5,6,10,practice
-40.370897,-88.152546,Ludlow,Illinois,15,7,4,14,now
-33.786594,-118.298662,Lawndale,California,20,4,7,8,for
+latitude,longitude,city,state,w2m,w2w,m2w,m2m,k1,c1,k2,c2,label
+40.922326,-72.637078,Holtsville,New York,10,1,10,2,hello,1,good,10,city
+18.165273,-66.722583,Adjuntas,Puerto Rico,15,2,9,4,this,2,practice,11,city
+18.393103,-67.180953,Aguada,Puerto Rico,16,3,8,6,is,3,now,12,city
+18.455913,-67.14578,Aguadilla,Puerto Rico,20,4,7,8,for,4,for,13,city
+18.172947,-66.944111,Maricao,Puerto Rico,36,5,6,10,practice,5,hello,1,city
+18.288685,-67.139696,Anasco,Puerto Rico,10,6,5,12,yes,6,this,2,city
+18.279531,-66.80217,Angeles,Puerto Rico,15,7,4,14,now,7,is,3,city
+18.450674,-66.698262,Arecibo,Puerto Rico,16,8,3,16,is,8,for,4,city
+18.444792,-66.640678,Bajadero,Puerto Rico,20,9,2,18,a,9,practice,5,city
+18.447092,-66.544255,Barceloneta,Puerto Rico,11,10,1,20,good,10,yes,6,city
+38.267429,-85.623671,Louisville,Kentucky,36,5,6,10,practice,11,now,7,city
+40.370897,-88.152546,Ludlow,Illinois,15,7,4,14,now,12,is,8,city
+33.786594,-118.298662,Lawndale,California,20,4,7,8,for,13,a,9,city
+,,,California,2020,404,89,100,good,10,yes,6,state
