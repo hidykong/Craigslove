@@ -1,4 +1,4 @@
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 20, right: 20, bottom: 100, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -29,12 +29,16 @@ d3.csv("data/sample_format.csv", function(error, data) {
   //currentCity = "Ludlow";
 
   //var ob;
+  city_list = [];
 
-  //for ( i in data ){
-  //  if (data[i]['city'] == "Ludlow") {
-  //    ob = data[i];
-  //  }
-  //}
+  for ( i in data ){
+    if ( data[i]['label'] == "city" ) {
+      city_list.push({"name":data[i]["city"]});
+    }
+    //if (data[i]['city'] == "Ludlow") {
+      //ob = data[i];
+    //}
+  }
 
   xDom = ["m4m","m4w","w4m","w4w"];
   yvals = [ {"tag":"m4m","val":0},
@@ -75,15 +79,24 @@ d3.csv("data/sample_format.csv", function(error, data) {
       .attr("y", function(d) { return y(d.val); })
       .attr("height", function(d) { return height - y(d.val); });
 
-  d3.select("input").on("change", change);
+  svg.selectAll(".cityButton")
+    .data(city_list)
+    .enter().append("rect")
+    .attr("class","cityButton")
+    .attr("x", function(d,i) { return i*40 })
+    .attr("width",40)
+    .attr("y", height+90)
+    .attr("height",10)
+    .attr("fill", "blue")
+    .on("click", function(d,i) { return change(d["name"]); });
 
-  var sortTimeout = setTimeout(function() {
-    d3.select("input").property("checked", true).each(change);
-  }, 1000);
+  //d3.select("input").on("change", change);
 
-  function change() {
-    currentCity = "Ludlow"
-    clearTimeout(sortTimeout);
+  //var sortTimeout = setTimeout(function() {
+    //d3.select("input").property("checked", true).each(change);
+  //}, 1000);
+
+  function change(currentCity) {
 
     var ob;
 
