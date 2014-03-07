@@ -2,7 +2,28 @@ var w = 960;
 var h = 500;
 
 //1 = seeking; 2 = sought; 3 = orientation
-var heatmap = 2;
+var heatmap = 1;
+
+// button             
+var seeking = d3.select("#seeking")
+  .on("click", function () {
+      seeking.html("transition");
+      heatmap = 1;
+      drawChart();
+  });
+var sought = d3.select("#sought")
+  .on("click", function () {
+      seeking.html("transition");
+      heatmap = 2;
+      //figure out how to change color
+  });
+var orient = d3.select("#orient")
+.on("click", function () {
+      seeking.html("transition");
+      heatmap = 3;
+      drawChart();
+  });
+
 
 var projection = d3.geo.albersUsa()
 .translate([w/2, h/2])
@@ -18,8 +39,8 @@ var color = d3.scale.quantize()
   .range(["rgb(237,248,233)","rgb(186,228,179)","rgb(116,196,118)","rgb(49,163,84)","rgb(0,109,44)"]);
 
 var radiusScale = d3.scale.linear()
-        .domain([0, 50])
-        .range([1, 8], 0.05);
+        .domain([0, 100])
+        .range([1, 10], 0.05);
 
   //Create SVG element
   var svg = d3.select("body")
@@ -28,6 +49,35 @@ var radiusScale = d3.scale.linear()
   .attr("height", h);
 
   d3.csv("data/sample_state.csv", function(data) {
+
+
+    d3.json("data/us-states.json", function(json) {
+
+      //merge city info and GeoJSON
+      for (var i = 0; i < data.length; i++){
+
+          var dataState = data[i].state;
+          //seeking (women/men)
+            var dataValue1 = parseFloat(+data[i].w2m + +data[i].w2w)/(+data[i].m2w + +data[i].m2m);
+          //sought (women/men)
+            var dataValue2 = parseFloat(+data[i].m2w + +data[i].w2w)/(+data[i].m2m + +data[i].w2m);
+          //orientation (homo/hetero)
+            var dataValue3 = parseFloat(+data[i].m2m + +data[i].w2w)/(+data[i].m2w + +data[i].w2m);
+          
+
+        //loop through states
+        for (var j= 0; j < json.features.length; j++) {
+          var jsonState = json.features[j].properties.name;
+          //if the State matches, store the value in json state
+          if (dataState == jsonState) {
+            json.features[j].properties.value1 = dataValue1;
+            json.features[j].properties.value2 = dataValue2;
+            json.features[j].properties.value3 = dataValue3;
+
+            break;
+          }
+        }
+      } //end of merge
 
 
     if (heatmap == 1){  //seeking (women/men)
@@ -48,45 +98,14 @@ var radiusScale = d3.scale.linear()
     }
 
 
-    d3.json("data/us-states.json", function(json) {
-
-      //merge city info and GeoJSON
-      for (var i = 0; i < data.length; i++){
-
-        //if (data.label == "city"){
-          var dataState = data[i].state;
-          if (heatmap == 1){  //seeking (women/men)
-            var dataValue = parseFloat(+data[i].w2m + +data[i].w2w)/(+data[i].m2w + +data[i].m2m);
-          } else if (heatmap == 2){ //sought (women/men)
-            var dataValue = parseFloat(+data[i].m2w + +data[i].w2w)/(+data[i].m2m + +data[i].w2m);
-          } else { //orientation (homo/hetero)
-            var dataValue = parseFloat(+data[i].m2m + +data[i].w2w)/(+data[i].m2w + +data[i].w2m);
-          }
-        //}
-
-        //loop through states
-        for (var j= 0; j < json.features.length; j++) {
-          var jsonState = json.features[j].properties.name;
-          //if the State matches, store the value in json state
-          if (dataState == jsonState) {
-            //if there is already a value for that State, add to the value
-            if (json.features[j].properties.value){
-              json.features[j].properties.value += dataValue;
-            }
-            else { json.features[j].properties.value = dataValue;}
-
-            break;
-          }
-        }
-      } //end of merge
-
+    //this is the section we have to refactor to change later
       svg.selectAll("path")
         .data(json.features)
         .enter()
         .append("path")
         .attr("d", path)
         .style("fill", function(d){
-          var value = d.properties.value;
+          var value = d.properties.value1;
 
           if (value) {
             return color(value);
@@ -94,7 +113,7 @@ var radiusScale = d3.scale.linear()
             return "#ccc";
           }
         }); //fill
-    }); //end of json
+
 
     d3.csv("data/sample_1.csv", function(data2) {
       //we can either separate state.csv or keep everything under city.
@@ -121,6 +140,9 @@ var radiusScale = d3.scale.linear()
         d3.select(this)
         .attr("fill", "rgb(0, 0, 200)");
       });
-    });
+    }); //end of city.csv
+
+    }); //end of json = state path
+
 
   }); //end of state.csv
