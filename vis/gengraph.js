@@ -26,21 +26,21 @@ var svg = d3.select("body").append("svg")
 
 d3.csv("data/sample_format.csv", function(error, data) {
 
-  currentCity = "Ludlow";
+  //currentCity = "Ludlow";
 
-  var ob;
+  //var ob;
 
-  for ( i in data ){
-    if (data[i]['city'] == "Ludlow") {
-      ob = data[i];
-    }
-  }
+  //for ( i in data ){
+  //  if (data[i]['city'] == "Ludlow") {
+  //    ob = data[i];
+  //  }
+  //}
 
   xDom = ["m4m","m4w","w4m","w4w"];
-  yvals = [ {"tag":"m4m","val":ob["m4m"]},
-            {"tag":"m4w","val":ob["m4w"]},
-            {"tag":"w4m","val":ob["w4m"]},
-            {"tag":"w4w","val":ob["w4w"]} ];
+  yvals = [ {"tag":"m4m","val":0},
+            {"tag":"m4w","val":0},
+            {"tag":"w4m","val":0},
+            {"tag":"w4w","val":0} ];
 
 
 
@@ -49,7 +49,7 @@ d3.csv("data/sample_format.csv", function(error, data) {
   });
   var mmv = d3.max(yvals, function(d) { return parseInt(d.val,10); })
   x.domain(xDom);
-  y.domain([0,mmv]);
+  y.domain([0,20]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -57,7 +57,7 @@ d3.csv("data/sample_format.csv", function(error, data) {
       .call(xAxis);
 
   svg.append("g")
-      .attr("class", "y axis")
+      .attr("class", "yaxis")
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
@@ -82,8 +82,8 @@ d3.csv("data/sample_format.csv", function(error, data) {
   }, 1000);
 
   function change() {
+    currentCity = "Ludlow"
     clearTimeout(sortTimeout);
-    currentCity = "Lawndale";
 
     var ob;
 
@@ -97,6 +97,11 @@ d3.csv("data/sample_format.csv", function(error, data) {
             {"tag":"m4w","val":ob["m4w"]},
             {"tag":"w4m","val":ob["w4m"]},
             {"tag":"w4w","val":ob["w4w"]} ];
+
+    var mmv = d3.max(yvals, function(d) { return parseInt(d.val,10); })
+    x.domain(xDom);
+    y.domain([0,mmv]);
+
 
     // Copy-on-write since tweens are evaluated after a delay.
     var x0 = x.domain(data.sort(this.checked
@@ -118,6 +123,7 @@ d3.csv("data/sample_format.csv", function(error, data) {
       .duration(1000)
       .attr("height", function(d) { return height - y(d.val); })
       .attr("y", function(d) { return y(d.val); })
+    svg.select(".yaxis").transition().duration(1000).call(yAxis);
 
   }
 });
