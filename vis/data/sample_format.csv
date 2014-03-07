@@ -1,6 +1,6 @@
 label,latitude,longitude,city,state,w4m,w4w,m4w,m4m,k1,c1,k2,c2,k3,c3,k4,c4,k5,c5
 city,40.922326,-72.637078,Holtsville,New York,10,1,10,2,hello,123,this,87,is,45,sample,23,data,11
-city,38.267429,-85.623671,Louisville,Kentucky,36,5,6,10,practice,455,walk,321,to,231,school,123,in,23
+city,38.267429,-85.623671,Louisville,Kentucky,5,35,6,10,practice,455,walk,321,to,231,school,123,in,23
 city,40.370897,-88.152546,Ludlow,Illinois,15,7,4,14,now,77,running,55,from,34,the,26,law,19
 city,33.786594,-118.298662,Lawndale,California,20,4,7,8,for,875,ever,765,thinking,477,about,276,turtle,12
 state,,,,Illinois,300,123,542,689,walking,1230,reading,1129,talking,893,joking,560,uiuc,431
