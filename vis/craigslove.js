@@ -131,19 +131,16 @@ var radiusScale = d3.scale.linear()
 // buttons         
 var seeking = d3.select("#seeking")
   .on("click", function () {
-      seeking.html("transition");
       heatmap = 1;
       drawMap();
   });
 var sought = d3.select("#sought")
   .on("click", function () {
-      seeking.html("transition");
       heatmap = 2;
       drawMap();
   });
 var orient = d3.select("#orient")
 .on("click", function () {
-      seeking.html("transition");
       heatmap = 3;
       drawMap();
   });
