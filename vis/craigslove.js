@@ -20,7 +20,7 @@ var color = d3.scale.quantize()
   .attr("width", w)
   .attr("height", h);
 
-  d3.csv("data/sample_1.csv", function(data) {
+  d3.csv("data/sample_format.csv", function(data) {
     color.domain([
       //use w2m to determine the color for now
       d3.min(data, function(d){ return d.w2m;}),
