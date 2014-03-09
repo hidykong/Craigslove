@@ -32,7 +32,7 @@ var radiusScale = d3.scale.linear()
   .attr("width", w)
   .attr("height", h);
 
-  d3.csv("data/sample_state.csv", function(data) {
+  d3.csv("data/output_state.csv", function(data) {
 
 
     d3.json("data/us-states.json", function(json) {
@@ -97,7 +97,7 @@ var radiusScale = d3.scale.linear()
         }); //fill
 
 
-    d3.csv("data/sample_1.csv", function(data2) {
+    d3.csv("data/city_output.csv", function(data2) {
       //we can either separate state.csv or keep everything under city.
       svg.selectAll("circle")
         .data(data2)
