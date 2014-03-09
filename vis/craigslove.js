@@ -3,6 +3,7 @@ var h = 500;
 
 //1 = seeking; 2 = sought; 3 = orientation
 var heatmap = 1;
+var logValue = 1;
 
 var projection = d3.geo.albersUsa()
 .translate([w/2, h/2])
@@ -17,13 +18,13 @@ var path = d3.geo.path()
 var color1 = d3.scale.linear()
   .range (["rgb(251,20,71)","rgb(0,27,137)"]);
 var color2 = d3.scale.linear()
-  .range (["rgb(222,106,16)","rgb(81,167,249)"]);
+  .range (["rgb(81,167,249)", "rgb(222,106,16)"]);
 var color3 = d3.scale.linear()
   .range (["rgb(218,179,114)","rgb(113,37,117)"]);
 
 var radiusScale = d3.scale.linear()
-        .domain([0, 100])
-        .range([1, 10], 0.05);
+        .domain([0, 2000])
+        .range([2, 5], 0.05);
 
   //Create SVG element
   var svg = d3.select("body")
@@ -36,16 +37,17 @@ var radiusScale = d3.scale.linear()
 
     d3.json("data/us-states.json", function(json) {
 
-      //merge city info and GeoJSON
+
+      //merge state info and GeoJSON
       for (var i = 0; i < data.length; i++){
 
           var dataState = data[i].state;
           //seeking (women/men)
-            var dataValue1 = parseFloat(+data[i].w2m + +data[i].w2w)/(+data[i].m2w + +data[i].m2m);
+            var dataValue1 = parseFloat(+data[i].w4m + +data[i].w4w)/(+data[i].m4w + +data[i].m4m);
           //sought (women/men)
-            var dataValue2 = parseFloat(+data[i].m2w + +data[i].w2w)/(+data[i].m2m + +data[i].w2m);
+            var dataValue2 = parseFloat(+data[i].m4w + +data[i].w4w)/(+data[i].m4m + +data[i].w4m);
           //orientation (homo/hetero)
-            var dataValue3 = parseFloat(+data[i].m2m + +data[i].w2w)/(+data[i].m2w + +data[i].w2m);
+            var dataValue3 = parseFloat(+data[i].m4m + +data[i].w4w)/(+data[i].m4w + +data[i].w4m);
           
         //loop through states
         for (var j= 0; j < json.features.length; j++) {
@@ -64,18 +66,18 @@ var radiusScale = d3.scale.linear()
 
 //seeking (women/men)
       color1.domain([
-        d3.min(data, function(d){ return (+d.w2m + +d.w2w)/(+d.m2w + +d.m2m);}),
-        d3.max(data, function(d){ return (+d.w2m + +d.w2w)/(+d.m2w + +d.m2m);})
+        d3.min(data, function(d){ return (+d.w4m + +d.w4w)/(+d.m4w + +d.m4m);}),
+        d3.max(data, function(d){ return (+d.w4m + +d.w4w)/(+d.m4w + +d.m4m);})
         ]);
 //sought (women/men)
       color2.domain([
-        d3.min(data, function(d){ return (+d.m2w + +d.w2w)/(+d.m2m + +d.w2m);}),
-        d3.max(data, function(d){ return (+d.m2w + +d.w2w)/(+d.m2m + +d.w2m)})
+        d3.min(data, function(d){ return (+d.m4w + +d.w4w)/(+d.m4m + +d.w4m);}),
+        d3.max(data, function(d){ return (+d.m4w + +d.w4w)/(+d.m4m + +d.w4m);})
         ]);
 //orientation (homo/hetero)
       color3.domain([
-        d3.min(data, function(d){ return (+d.m2m + +d.w2w)/(+d.m2w + +d.w2m);}),
-        d3.max(data, function(d){ return (+d.m2m + +d.w2w)/(+d.m2w + +d.w2m)})
+        d3.min(data, function(d){ return (+d.m4m + +d.w4w)/(+d.m4w + +d.w4m);}),
+        d3.max(data, function(d){ return (+d.m4m + +d.w4w)/(+d.m4w + +d.w4m);})
         ]);
 
     //this is the section we have to refactor to change later
@@ -102,23 +104,23 @@ var radiusScale = d3.scale.linear()
         .enter()
         .append("circle")
         .attr("cx", function(d) {
-          return projection([d.longitude, d.latitude])[0];
+          return projection([d.lon, d.lat])[0];
         })
       .attr("cy", function(d) {
-        return projection([d.longitude, d.latitude])[1];
+        return projection([d.lon, d.lat])[1];
       })
       //+d turns a numeric string, d, to a number
-      .attr("r", function(d) { return radiusScale(+d.w2m  +  +d.w2w  +  +d.m2m  +  +d.m2w) ; })
+      .attr("r", function(d) { return radiusScale(+d.w4m  +  +d.w4w  +  +d.m4m  +  +d.m4w) ; })
         .style("opacity", 0.75)
         .style("stroke-width", 0)
         //color it red when hover -> we can change this later to display the information
         .on("mouseover", function(d){
           d3.select(this)
-          .attr("fill", "red");
+          .attr("fill", "yellow");
         })
       .on("mouseout", function(d){
         d3.select(this)
-        .attr("fill", "rgb(0, 0, 200)");
+        .attr("fill", "white");
       });
     }); //end of city.csv
 
@@ -159,6 +161,7 @@ var orient = d3.select("#orient")
             .style("fill", function(d){
               var value = d.properties.value1;
               if (value) {
+                logValue = value;
                 return color1(value);
               } else {
                 return "#ccc";
@@ -173,6 +176,7 @@ var orient = d3.select("#orient")
             .style("fill", function(d){
               var value = d.properties.value2;
               if (value) {
+                logValue = value;
                 return color2(value);
               } else {
                 return "#ccc";
@@ -187,6 +191,7 @@ var orient = d3.select("#orient")
             .style("fill", function(d){
               var value = d.properties.value3;
               if (value) {
+                logValue = value;
                 return color3(value);
               } else {
                 return "#ccc";

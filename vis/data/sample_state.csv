@@ -1,7 +1,42 @@
-state,w2m,w2w,m2w,m2m,k1,c1,k2,c2
-New York,100,904,245,74,hello,1,good,10
-Michigan,200,804,255,134,good,10,yes,6
-Kentucky,300,704,234,277,practice,11,now,7
-Illinois,400,604,352,422,now,12,is,8
-Iowa,500,504,657,654,for,13,a,9
-California,2020,404,89,100,good,10,yes,6
+city,state,m4m,m4w,w4m,w4w,k1,c1,k2,c2,k3,c3,k4,c4,k5,c5
+WA,Washington,1546,2590,673,454,m4m,361,seeking,204,guy,178,woman,174,fun,142
+DC,DC,991,279,82,20,m4m,239,top,108,bottom,100,guy,81,fun,73
+WI,WI,1114,1123,238,239,m4m,269,fun,124,seeking,115,guy,113,bottom,81
+WV,WV,43,56,31,31,ltr,10,seeking,10,love,8,something,8,want,8
+FL,Florida,2671,2362,463,284,m4m,740,guy,236,fun,231,seeking,205,woman,177
+WY,Wyoming,715,580,131,122,m4m,168,fun,78,seeking,61,guy,58,need,45
+NM,New Mexico,6794,2947,726,592,m4m,1562,bottom,518,fun,515,top,465,guy,268
+TX,Texes,6422,4534,1144,1096,m4m,1597,guy,484,fun,399,seeking,347,need,290
+LA,LA,2150,1217,344,403,m4m,540,top,179,guy,150,fun,139,bottom,130
+NC,NC,404,872,427,151,m4m,85,woman,76,seeking,74,man,37,fun,36
+ND,ND,44,39,29,22,m4m,13,ltr,8,seeking,7,guy,6,want,6
+NE,NE,1862,1528,476,803,m4m,477,fun,180,seeking,176,bottom,141,top,117
+TN,TN,110,267,140,96,woman,32,m4m,22,love,19,real,18,man,16
+NY,New York,5975,1542,614,258,m4m,1312,guy,542,top,455,bottom,351,hot,247
+PA,PA,3561,2210,584,313,m4m,757,fun,359,guy,243,need,193,top,189
+AK,Alaska,19122,5511,805,853,m4m,2472,guy,1022,top,910,bottom,777,now,585
+NV,Nevada,10192,3904,515,506,m4m,2149,top,898,guy,793,bottom,439,fun,437
+VA,VA,891,673,150,76,m4m,164,fun,95,bottom,95,top,92,white,85
+CO,Colorado,6448,3017,526,259,m4m,1328,guy,575,fun,550,bottom,494,top,457
+California,California,17848,6865,1232,958,m4m,3972,guy,1394,top,1349,bottom,1195,fun,861
+AL,Alabama,794,618,208,202,m4m,176,fun,84,need,72,suck,62,black,55
+AR,AR,5222,3164,761,442,m4m,1216,fun,408,guy,372,bottom,292,need,194
+IL,Illinois,5094,2373,512,420,m4m,1170,fun,555,guy,435,top,361,need,333
+GA,GA,532,739,255,214,m4m,137,seeking,80,fun,64,man,46,woman,40
+IN,Indiana,3571,2052,557,718,m4m,943,guy,300,fun,189,suck,188,seeking,176
+IA,Iowa,1507,944,275,355,m4m,495,fun,173,guy,126,need,121,suck,103
+AZ,Arizona,610,822,187,151,m4m,149,seeking,82,guy,47,woman,41,want,38
+ID,Idaho,8377,3789,913,980,m4m,1997,top,869,seeking,741,guy,676,black,655
+OK,Oklahoma,6486,3515,799,430,m4m,1582,fun,585,suck,344,top,284,bottom,276
+OH,Ohio,5235,2835,598,409,m4m,1248,guy,446,fun,366,top,232,seeking,216
+UT,UT,1054,790,136,218,m4m,188,fun,135,guy,82,seeking,80,need,49
+MO,MO,6969,2707,561,514,m4m,1398,fun,541,bottom,475,top,470,now,437
+MN,MN,166,497,110,253,woman,55,seeking,45,man,32,guy,31,girl,28
+MI,Michigan,344,392,93,249,seeking,63,m4m,52,fun,46,guy,34,girl,29
+KS,Kansas,7779,4567,930,644,m4m,1586,guy,680,bottom,519,top,507,fun,507
+MT,MT,169,172,136,109,girl,41,m4m,35,fun,25,man,21,seeking,18
+MS,MS,187,359,114,124,m4m,48,real,26,white,26,seeking,23,woman,17
+SC,South Carolina,249,374,99,87,m4m,87,woman,36,m4w,23,fun,21,man,20
+KY,Kentucky,1018,812,81,145,m4m,90,fun,60,seeking,59,woman,53,good,46
+OR,Oregon,16850,8250,1776,1251,m4m,3811,top,1447,guy,1419,bottom,1364,fun,817
+SD,South Dakota,52,246,130,41,fun,17,woman,11,love,11,girl,10,man,9
