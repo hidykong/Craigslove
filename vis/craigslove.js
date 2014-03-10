@@ -279,7 +279,26 @@ var color3 = d3.scale.linear()
           .attr("x",100)
           .attr("y",-2)
           .text(function(d){return d.toLowerCase();})
-          .attr("font-size", "18px")
+          .attr("font-size", "18px");
+        svg.selectAll(".wordList")
+          .data(["","","","",""])
+          .enter()
+          .append("text")
+          .attr("class","wordList")
+          .attr("x",1050)
+          .attr("y",function(d,i){return 200+(i*30);})
+          .text(function(d){return d.toLowerCase();})
+        svg.selectAll(".countryButton")
+          .data([""])
+          .enter()
+          .append("rect")
+          .attr("class","countryButton")
+          .attr("x", function(d,i) { return i*40; })
+          .attr("width",40)
+          .attr("y", height+90)
+          .attr("height",10)
+          .attr("fill", "blue")
+          .on("click", function(d,i) { return change("country","USA"); });
 
         //svg.selectAll(".cityButton")
         //  .data(city_list)
@@ -315,7 +334,19 @@ var color3 = d3.scale.linear()
                 ob = data2[i];
               }
             }
+          } else if (type == "country") {
+            for ( i in data ){
+              if (data[i]["city"] == name){
+                ob = data[i];
+              }
+            }
           }
+
+          termVals = [ {"word":ob["k1"],"val":ob["c1"]},
+                       {"word":ob["k2"],"val":ob["c2"]},
+                       {"word":ob["k3"],"val":ob["c3"]},
+                       {"word":ob["k4"],"val":ob["c4"]},
+                       {"word":ob["k5"],"val":ob["c5"]}]
 
           yvals = [ {"tag":"m4m","val":ob["m4m"]},
                 {"tag":"m4w","val":ob["m4w"]},
@@ -345,6 +376,8 @@ var color3 = d3.scale.linear()
             nameAr.push(name.toLowerCase());
           } else if ( type == "city" ) {
             nameAr.push(name.city.toLowerCase()+", "+name.state.toLowerCase());
+          } else if (type == "country") {
+            nameAr.push("USA");
           }
 
 
@@ -352,7 +385,15 @@ var color3 = d3.scale.linear()
             .data(nameAr)
             .transition()
             .duration(1000)
-            .text(function(d) {return d;})
+            .text(function(d) {return d;});
+
+          svg.selectAll(".wordList")
+            .data(termVals)
+            .transition()
+            .duration(1000)
+            .text(function(d){return d.word+" ("+d.val+")";})
+            .attr("font-size", function(d,i){return 24-(3*i)+"px"});
+
 
           svg.selectAll(".bar")
             .data(yvals)
