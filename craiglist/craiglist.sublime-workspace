@@ -1,0 +1,484 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sta",
+				"stateMapping"
+			],
+			[
+				"read",
+				"reader"
+			],
+			[
+				"coun",
+				"country_common"
+			],
+			[
+				"co",
+				"country_common"
+			],
+			[
+				"country_",
+				"country_counter"
+			],
+			[
+				"wr",
+				"writerow"
+			],
+			[
+				"out",
+				"out_list"
+			],
+			[
+				"ou",
+				"out_list"
+			],
+			[
+				"cou",
+				"country_counter"
+			],
+			[
+				"words",
+				"words_m"
+			],
+			[
+				"m",
+				"m4m"
+			],
+			[
+				"def",
+				"defaultdict"
+			],
+			[
+				"wor",
+				"word_map"
+			],
+			[
+				"wri",
+				"write"
+			],
+			[
+				"city",
+				"city_out"
+			],
+			[
+				"csv",
+				"csv_out"
+			],
+			[
+				"ci",
+				"city_m"
+			],
+			[
+				"cit",
+				"city_m"
+			],
+			[
+				"m4",
+				"m4w"
+			],
+			[
+				"l",
+				"lon"
+			],
+			[
+				"wo",
+				"word_map"
+			],
+			[
+				"all",
+				"all_bi"
+			],
+			[
+				"ne",
+				"next_line"
+			],
+			[
+				"o",
+				"origcity"
+			],
+			[
+				"de",
+				"defaultdict"
+			],
+			[
+				"lo",
+				"lower"
+			],
+			[
+				"citi",
+				"cities_map"
+			],
+			[
+				"rea",
+				"read_city_data"
+			],
+			[
+				"spl",
+				"splits"
+			],
+			[
+				"get",
+				"get_bigram_array"
+			],
+			[
+				"ps",
+				"post_date"
+			],
+			[
+				"ca",
+				"categories"
+			],
+			[
+				"url",
+				"url"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"fil",
+				"file_map"
+			],
+			[
+				"cat",
+				"categories"
+			],
+			[
+				"c",
+				"CraiglistItem"
+			],
+			[
+				"ite",
+				"items"
+			],
+			[
+				"par",
+				"partition_vcount"
+			],
+			[
+				"start",
+				"startId"
+			],
+			[
+				"no",
+				"no_vertex"
+			],
+			[
+				"old",
+				"old_vertex_per_machine"
+			],
+			[
+				"new",
+				"new_vertex_per_machine"
+			],
+			[
+				"ma",
+				"machine_id"
+			],
+			[
+				"ver",
+				"vertex_per_machine"
+			],
+			[
+				"machine",
+				"machine_id"
+			],
+			[
+				"machi",
+				"machine_count"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "analyse.py",
+			"settings":
+			{
+				"buffer_size": 8394,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "stop.txt",
+			"settings":
+			{
+				"buffer_size": 590,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"gitdiff",
+				"Git: Diff Current File"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			]
+		],
+		"width": 404.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/mk/Documents/craiglist/craiglist/spiders/craiglist_spider.py",
+		"/home/mk/Documents/craiglist/craiglist/items.py",
+		"/home/mk/Documents/craiglist/craiglist/settings.py",
+		"/home/mk/Documents/craiglist/stop.txt",
+		"/home/mk/Documents/craiglist/craiglist/pipelines.py",
+		"/home/mk/Documents/craiglist/cities.csv",
+		"/home/mk/Documents/craiglist/craiglist/spiders/city_spider.py",
+		"/home/mk/Documents/craiglist/urls.txt",
+		"/home/mk/Documents/craiglist/analyse.py",
+		"/home/mk/Documents/craiglist/craiglist/spiders/urls.txt",
+		"/home/mk/Documents/craiglist/day.txt",
+		"/home/mk/Documents/craiglist/scrapy.cfg",
+		"/home/mk/Documents/craiglist/craiglist/pipelines/json_writer_pipeline.py",
+		"/home/mk/Documents/craiglist/craiglist/json_writer_pipeline.py",
+		"/home/mk/Documents/craiglist/craiglist/json_write_pipeline.py",
+		"/home/mk/Documents/craiglist/craiglist/craiglist_spider.py",
+		"/home/mk/Indy/LFGraph/langar.cpp",
+		"/home/mk/Indy/LFGraph/host.h",
+		"/home/mk/Indy/LFGraph/langar.h",
+		"/home/mk/Indy/LFGraph/MyBarrier/src/dprg/ModifyBarrierSizeServer.java",
+		"/home/mk/Indy/LFGraph/MyBarrier/src/dprg/BarrierServer.java",
+		"/home/mk/Indy/LFGraph/langarNewServer.cpp",
+		"/home/mk/Indy/LFGraph/main.cpp",
+		"/home/mk/Indy/LFGraph/host.cpp",
+		"/home/mk/Indy/LFGraph/MyBarrier/src/dprg/AddClusterNode.java"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/home/mk/Indy/LFGraph/MyBarrier/src/dprg"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"word_map.bin",
+			"pickle",
+			"looking for",
+			"feb",
+			"identity",
+			"manoj",
+			"vector",
+			"Langar::",
+			"vertex_count",
+			"string",
+			"char",
+			"str",
+			"string",
+			"new int[",
+			"[]",
+			"endId",
+			"4443",
+			"barrier",
+			"Langar::host_updates",
+			"BarrierServer"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"accounting",
+			"mk"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "analyse.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8394,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3156,
+								3156
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2223.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "stop.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 590,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								590,
+								590
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 124.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "craiglist.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/craiglist/craiglist.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 96.0,
+		"selected_items":
+		[
+			[
+				"load",
+				"load"
+			]
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

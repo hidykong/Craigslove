@@ -1,0 +1,136 @@
+{'w4m': 39, 'city': 'texoma', 'm4m': 30, 'm4w': 54, 'w4w': 8}
+{'w4m': 33, 'city': 'jackson, TN', 'm4m': 63, 'm4w': 98, 'w4w': 50}
+{'city': 'hudson valley', 'w4w': 41, 'm4w': 341, 'm4m': 407, 'w4m': 69}
+{'city': 'north MS', 'm4w': 112, 'w4w': 38, 'w4m': 40, 'm4m': 73}
+{'w4m': 6, 'city': 'eastern CO', 'w4w': 19, 'm4w': 15, 'm4m': 6}
+{'w4m': 31, 'city': 'central LA', 'm4m': 22, 'm4w': 41, 'w4w': 70}
+{'w4m': 37, 'city': 'st cloud', 'w4w': 43, 'm4w': 111, 'm4m': 22}
+{'w4m': 0, 'city': 'rochester, MN', 'm4m': 0, 'm4w': 37, 'w4w': 37}
+{'city': 'mendocino co', 'w4w': 34, 'm4w': 0, 'm4m': 0, 'w4m': 0}
+{'w4m': 6, 'city': 'heartland FL', 'm4m': 21, 'm4w': 18, 'w4w': 1}
+{'city': 'deep east TX', 'm4w': 40, 'w4w': 74, 'w4m': 19, 'm4m': 27}
+{'city': 'columbus, GA', 'm4w': 131, 'm4m': 58, 'w4m': 73, 'w4w': 22}
+{'city': 'richmond, IN', 'm4w': 0, 'w4w': 0, 'w4m': 0, 'm4m': 0}
+{'city': 'southern WV', 'm4m': 10, 'w4w': 40, 'w4m': 19, 'm4w': 27}
+{'w4m': 41, 'city': 'jackson, MS', 'm4m': 102, 'm4w': 160, 'w4w': 54}
+{'city': 'richmond, VA', 'm4w': 673, 'm4m': 891, 'w4m': 150, 'w4w': 76}
+{'city': 'wilmington, NC', 'm4w': 189, 'm4m': 81, 'w4m': 63, 'w4w': 20}
+{'city': 'twin tiers', 'm4w': 25, 'w4w': 73, 'w4m': 9, 'm4m': 7}
+{'city': 'western IL', 'm4m': 16, 'w4w': 37, 'm4w': 22, 'w4m': 6}
+{'city': 'florence, SC', 'm4w': 43, 'w4w': 11, 'w4m': 21, 'm4m': 32}
+{'city': 'central NJ', 'm4w': 614, 'm4m': 2703, 'w4m': 192, 'w4w': 53}
+{'w4m': 28, 'city': 'springfield, IL', 'w4w': 38, 'm4w': 77, 'm4m': 62}
+{'w4m': 57, 'city': 'eastern KY', 'w4w': 69, 'm4w': 52, 'm4m': 29}
+{'city': 'southwest MN', 'm4w': 20, 'w4w': 47, 'w4m': 4, 'm4m': 4}
+{'city': 'ames, IA', 'm4w': 36, 'w4w': 45, 'w4m': 14, 'm4m': 25}
+{'w4m': 9, 'city': 'southwest MI', 'm4m': 13, 'm4w': 23, 'w4w': 77}
+{'city': 'dothan, AL', 'm4w': 71, 'm4m': 30, 'w4m': 25, 'w4w': 59}
+{'w4m': 0, 'city': 'mohave co', 'm4m': 38, 'm4w': 38, 'w4w': 0}
+{'city': 'quad cities', 'm4w': 110, 'w4w': 37, 'w4m': 0, 'm4m': 0}
+{'city': 'east idaho', 'm4w': 89, 'w4w': 80, 'w4m': 10, 'm4m': 65}
+{'city': 'york, PA', 'w4w': 6, 'w4m': 31, 'm4m': 78, 'm4w': 154}
+{'city': 'st augustine', 'm4w': 42, 'm4m': 20, 'w4m': 10, 'w4w': 42}
+{'w4m': 37, 'city': 'lancaster, PA', 'm4m': 83, 'm4w': 150, 'w4w': 8}
+{'city': 'southwest KS', 'm4w': 16, 'w4w': 62, 'w4m': 15, 'm4m': 7}
+{'city': 'the shoals', 'm4w': 33, 'm4m': 9, 'w4m': 10, 'w4w': 21}
+{'city': 'poconos', 'm4w': 151, 'w4w': 75, 'w4m': 0, 'm4m': 0}
+{'city': 'south jersey', 'w4w': 38, 'w4m': 75, 'm4m': 1550, 'm4w': 561}
+{'city': 'eastern montana', 'm4w': 15, 'w4w': 26, 'w4m': 41, 'm4m': 66}
+{'city': 'eastern CT', 'm4w': 138, 'w4w': 55, 'w4m': 28, 'm4m': 134}
+{'w4m': 0, 'city': 'oregon coast', 'w4w': 38, 'm4w': 37, 'm4m': 0}
+{'city': 'northwest CT', 'm4w': 36, 'w4w': 36, 'w4m': 0, 'm4m': 0}
+{'city': 'eastern shore', 'm4w': 130, 'm4m': 116, 'w4m': 17, 'w4w': 11}
+{'city': 'northwest OK', 'm4w': 0, 'm4m': 0, 'w4m': 0, 'w4w': 37}
+{'city': 'skagit', 'm4w': 38, 'w4w': 0, 'w4m': 0, 'm4m': 0}
+{'city': 'olympic pen', 'm4w': 0, 'w4w': 0, 'w4m': 0, 'm4m': 0}
+{'w4m': 11, 'city': 'tuscarawas co', 'm4m': 6, 'm4w': 14, 'w4w': 45}
+{'city': 'southeast AK', 'm4m': 2, 'm4w': 18, 'w4m': 9}
+{'city': 'monroe, MI', 'm4w': 0, 'm4m': 0, 'w4m': 0, 'w4w': 0}
+{'city': 'salt lake', 'm4w': 624, 'w4w': 38, 'w4m': 76, 'm4m': 1888}
+{'w4m': 13, 'city': 'east oregon', 'w4w': 74, 'm4w': 20, 'm4m': 4}
+{'city': 'monroe, LA', 'm4m': 0, 'w4w': 39, 'm4w': 39, 'w4m': 0}
+{'w4m': 39, 'city': 'northern MI', 'm4m': 36, 'm4w': 147, 'w4w': 74}
+{'city': 'lake of ozarks', 'm4m': 18, 'w4w': 11, 'w4m': 22, 'm4w': 50}
+{'city': 'colo springs', 'm4w': 528, 'm4m': 309, 'w4m': 185, 'w4w': 59}
+{'w4m': 17, 'city': 'farmington, NM', 'm4m': 18, 'm4w': 28, 'w4w': 73}
+{'city': 'the thumb', 'm4w': 15, 'm4m': 4, 'w4m': 6, 'w4w': 29}
+{'city': 'catskills', 'm4w': 27, 'm4m': 11, 'w4m': 19, 'w4w': 47}
+{'city': 'south coast', 'm4w': 109, 'w4w': 0, 'w4m': 38, 'm4m': 35}
+{'city': 'imperial co', 'm4w': 20, 'w4m': 8, 'm4m': 31}
+{'w4m': 40, 'city': 'okaloosa', 'm4m': 0, 'm4w': 76, 'w4w': 39}
+{'w4m': 12, 'city': 'eastern WV', 'm4m': 10, 'm4w': 39, 'w4w': 2}
+{'city': 'western slope', 'm4w': 109, 'm4m': 64, 'w4m': 31, 'w4w': 7}
+{'city': 'jacksonville, NC', 'w4w': 24, 'w4m': 120, 'm4m': 38, 'm4w': 153}
+{'w4m': 13, 'city': 'southeast KS', 'm4m': 11, 'm4w': 34, 'w4w': 48}
+{'city': 'southern IL', 'm4w': 104, 'm4m': 52, 'w4m': 45, 'w4w': 30}
+{'w4m': 307, 'city': 'inland empire', 'w4w': 165, 'm4w': 1711, 'm4m': 4668}
+{'w4m': 24, 'city': 'brunswick, GA', 'm4m': 32, 'm4w': 32, 'w4w': 40}
+{'city': 'southeast MO', 'm4m': 29, 'w4w': 26, 'w4m': 30, 'm4w': 80}
+{'w4m': 88, 'city': 'clarksville, TN', 'm4m': 32, 'm4w': 128, 'w4w': 28}
+{'w4m': 0, 'city': 'outer banks', 'w4w': 0, 'm4w': 0, 'm4m': 0}
+{'w4m': 10, 'city': 'southeast IA', 'w4w': 79, 'm4w': 24, 'm4m': 10}
+{'city': 'southwest MS', 'm4w': 7, 'm4m': 2, 'w4m': 6, 'w4w': 68}
+{'w4m': 297, 'city': 'orange co', 'w4w': 112, 'm4w': 2025, 'm4m': 6923}
+{'w4m': 38, 'city': 'south dakota', 'm4m': 36, 'm4w': 0, 'w4w': 0}
+{'city': 'la salle co', 'm4m': 8, 'w4w': 2, 'w4m': 16, 'm4w': 26}
+{'city': 'northeast SD', 'm4m': 38, 'w4w': 0, 'm4w': 0, 'w4m': 0}
+{'w4m': 371, 'city': 'st louis', 'w4w': 135, 'm4w': 1522, 'm4m': 2804}
+{'city': 'cape cod', 'm4w': 91, 'm4m': 114, 'w4m': 29, 'w4w': 31}
+{'city': 'north dakota', 'm4w': 74, 'm4m': 0, 'w4m': 0, 'w4w': 0}
+{'w4m': 8, 'city': 'athens, OH', 'w4w': 70, 'm4w': 9, 'm4m': 7}
+{'w4m': 67, 'city': 'fayetteville, AR', 'm4m': 111, 'm4w': 198, 'w4w': 26}
+{'w4m': 10, 'city': 'jackson, MI', 'w4w': 70, 'm4w': 55, 'm4m': 34}
+{'w4m': 13, 'city': 'west virginia', 'w4w': 27, 'm4w': 15, 'm4m': 48}
+{'w4m': 0, 'city': 'panama city, FL', 'm4m': 35, 'm4w': 105, 'w4w': 36}
+{'city': 'tri', 'm4m': 46, 'w4w': 60, 'w4m': 42, 'm4w': 100}
+{'w4m': 14, 'city': 'decatur, IL', 'm4m': 8, 'm4w': 19, 'w4w': 48}
+{'city': 'sheboygan, WI', 'm4w': 0, 'w4w': 37, 'w4m': 0, 'm4m': 0}
+{'city': 'erie, PA', 'm4w': 80, 'm4m': 44, 'w4m': 57, 'w4w': 23}
+{'city': 'siskiyou co', 'm4w': 0, 'w4w': 37, 'w4m': 0, 'm4m': 0}
+{'w4m': 26, 'city': 'central MI', 'w4w': 77, 'm4w': 61, 'm4m': 11}
+{'w4m': 72, 'city': 'columbia, MO', 'w4w': 25, 'm4w': 169, 'm4m': 81}
+{'w4m': 74, 'city': 'western mass', 'w4w': 41, 'm4w': 310, 'm4m': 465}
+{'city': 'space coast', 'w4w': 22, 'm4w': 198, 'm4m': 107, 'w4m': 60}
+{'city': 'northwest KS', 'm4m': 0, 'w4w': 38, 'm4w': 0, 'w4m': 0}
+{'city': 'southern MD', 'm4w': 65, 'm4m': 77, 'w4m': 37, 'w4w': 11}
+{'city': 'SF bay area', 'w4w': 54, 'w4m': 179, 'm4m': 2376, 'm4w': 804}
+{'w4m': 437, 'city': 'south florida', 'm4m': 1756, 'm4w': 1563, 'w4w': 321}
+{'city': 'chambana', 'm4w': 96, 'w4w': 43, 'w4m': 50, 'm4m': 130}
+{'w4m': 110, 'city': 'rochester, NY', 'w4w': 36, 'm4w': 492, 'm4m': 641}
+{'city': 'tampa bay', 'm4w': 1335, 'm4m': 2268, 'w4m': 245, 'w4w': 150}
+{'w4m': 30, 'city': 'hilton head', 'w4w': 32, 'm4w': 33, 'm4m': 28}
+{'city': 'finger lakes', 'm4m': 18, 'w4w': 78, 'm4w': 46, 'w4m': 19}
+{'city': 'bloomington, IN', 'm4w': 102, 'm4m': 33, 'w4m': 29, 'w4w': 50}
+{'city': 'bloomington, IL', 'm4w': 66, 'w4w': 45, 'w4m': 13, 'm4m': 48}
+{'w4m': 60, 'city': 'east TX', 'm4m': 106, 'm4w': 224, 'w4w': 24}
+{'w4m': 31, 'city': 'charleston, WV', 'm4m': 43, 'm4w': 56, 'w4w': 31}
+{'city': 'florida keys', 'm4w': 48, 'w4w': 4, 'w4m': 16, 'm4m': 34}
+{'w4m': 25, 'city': 'albany, GA', 'w4w': 64, 'm4w': 25, 'm4m': 15}
+{'city': 'st joseph', 'm4w': 37, 'm4m': 20, 'w4m': 12, 'w4w': 51}
+{'w4m': 24, 'city': 'southwest VA', 'm4m': 16, 'm4w': 29, 'w4w': 49}
+{'w4m': 195, 'city': 'columbus, OH', 'w4w': 70, 'm4w': 889, 'm4m': 1746}
+{'city': 'high rockies', 'm4w': 60, 'm4m': 71, 'w4m': 5, 'w4w': 12}
+{'city': 'birmingham, AL', 'm4w': 342, 'm4m': 631, 'w4m': 119, 'w4w': 55}
+{'city': 'hawaii', 'm4w': 652, 'm4m': 1827, 'w4m': 163, 'w4w': 69}
+{'city': 'southwest TX', 'm4m': 51, 'w4w': 20, 'w4m': 54, 'm4w': 2}
+{'city': 'north jersey', 'w4w': 107, 'm4w': 1314, 'm4m': 4713, 'w4m': 260}
+{'city': 'cumberland val', 'm4m': 10, 'w4w': 33, 'w4m': 20, 'm4w': 29}
+{'w4m': 292, 'city': 'detroit metro', 'm4m': 2960, 'm4w': 1214, 'w4w': 221}
+{'city': 'western MD', 'm4m': 24, 'w4w': 26, 'w4m': 28, 'm4w': 40}
+{'city': 'st george', 'm4w': 58, 'w4w': 4, 'w4m': 14, 'm4m': 100}
+{'city': 'albany, NY', 'm4m': 618, 'w4w': 56, 'm4w': 417, 'w4m': 98}
+{'city': 'athens, GA', 'm4w': 124, 'w4w': 17, 'w4m': 27, 'm4m': 142}
+{'w4m': 13, 'city': 'yuba', 'm4m': 18, 'm4w': 30, 'w4w': 9}
+{'city': 'rhode island', 'w4w': 0, 'm4w': 532, 'm4m': 1204, 'w4m': 75}
+{'w4m': 12, 'city': 'victoria, TX', 'm4m': 10, 'm4w': 32, 'w4w': 1}
+{'city': 'northwest GA', 'w4w': 0, 'm4w': 37, 'm4m': 37, 'w4m': 0}
+{'w4m': 82, 'city': 'washington, DC', 'w4w': 20, 'm4w': 279, 'm4m': 991}
+{'city': 'yoopers', 'm4w': 58, 'm4m': 37, 'w4m': 15, 'w4w': 52}
+{'w4m': 16, 'city': 'gold country', 'w4w': 22, 'm4w': 44, 'm4m': 46}
+{'w4m': 130, 'city': 'eastern NC', 'm4m': 193, 'm4w': 271, 'w4w': 39}
+{'w4m': 133, 'city': 'jacksonville, FL', 'w4w': 102, 'm4w': 659, 'm4m': 1171}
+{'city': 'fayetteville, NC', 'm4w': 284, 'w4w': 55, 'w4m': 191, 'm4m': 134}
+{'w4m': 0, 'city': 'northern WV', 'w4w': 38, 'm4w': 37, 'm4m': 0}
+{'city': 'northern WI', 'm4w': 37, 'm4m': 0, 'w4m': 0, 'w4w': 38}
+{'city': 'western KY', 'm4w': 46, 'm4m': 21, 'w4m': 27, 'w4w': 62}
+{'w4m': 46, 'city': 'treasure coast', 'm4m': 149, 'm4w': 189, 'w4w': 13}
