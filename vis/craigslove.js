@@ -144,7 +144,9 @@ var color3 = d3.scale.linear()
         .on("mouseout", function(d){
           d3.select(this)
           .attr("fill", "white");
-        });
+        })
+        .on("click",function(d){return change("city",d);});
+
 
         // buttons         
         var seeking = d3.select("#seeking")
@@ -288,6 +290,7 @@ var color3 = d3.scale.linear()
         //}, 1000);
 
         function change(type,name) {
+          //alert(name);
 
           var ob;
 
@@ -299,7 +302,7 @@ var color3 = d3.scale.linear()
             }
           } else if ( type == "city" ) {
             for ( i in data2 ){
-              if (data2[i][type] == name) {
+              if (data2[i][type] == name.city && data2[i]["state"] == name.state) {
                 ob = data2[i];
               }
             }
