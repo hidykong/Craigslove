@@ -1,7 +1,7 @@
-var w = 1200;
+var w = 1400;
 var h = 500;
 
-var margin = {top: 20, right: 20, bottom: 100, left: 40},
+var margin = {top: 20, right: 80, bottom: 100, left: 80},
     width = w - margin.left - margin.right,
     height = h - margin.top - margin.bottom;
 
@@ -271,6 +271,15 @@ var color3 = d3.scale.linear()
           .attr("width", x.rangeBand())
           .attr("y", function(d) { return y(d.val); })
           .attr("height", function(d) { return height - y(d.val); });
+        svg.selectAll(".graphLabels")
+          .data([""])
+          .enter()
+          .append("text")
+          .attr("class","graphLabels")
+          .attr("x",100)
+          .attr("y",-2)
+          .text(function(d){return d.toLowerCase();})
+          .attr("font-size", "18px")
 
         //svg.selectAll(".cityButton")
         //  .data(city_list)
@@ -331,6 +340,19 @@ var color3 = d3.scale.linear()
           //transition.selectAll(".bar")
           //.delay(delay)
           //.attr("height", function(d) { return height - y(d.val); });
+          var nameAr = [];
+          if ( type == "state" ){
+            nameAr.push(name.toLowerCase());
+          } else if ( type == "city" ) {
+            nameAr.push(name.city.toLowerCase()+", "+name.state.toLowerCase());
+          }
+
+
+          svg.selectAll(".graphLabels")
+            .data(nameAr)
+            .transition()
+            .duration(1000)
+            .text(function(d) {return d;})
 
           svg.selectAll(".bar")
             .data(yvals)
