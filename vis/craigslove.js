@@ -8,7 +8,7 @@ var margin = {top: 20, right: 80, bottom: 100, left: 80},
 var formatPercent = d3.format(".0%");
 
 var x = d3.scale.ordinal()
-  .rangeRoundBands([0, width*0.25], .1, 1);
+  .rangeRoundBands([0, width*0.15], .1, 1);
 
 var y = d3.scale.linear()
   .range([height, 0]);
@@ -22,6 +22,7 @@ var y = d3.scale.linear()
   .orient("left");
 
   var svg = d3.select("body").append("svg")
+  .attr("class","chart")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -260,7 +261,7 @@ var color3 = d3.scale.linear()
           .call(xAxis);
 
         svg.append("g")
-          .attr("class", "yaxis")
+          .attr("class", "y axis")
           .call(yAxis)
           .append("text")
           .attr("transform", "rotate(-90)")
@@ -406,7 +407,7 @@ var color3 = d3.scale.linear()
             .transition()
             .duration(1000)
             .attr("height", function(d) { return height - y(d.val); })
-            .attr("y", function(d) { return y(d.val); })
+            .attr("y", function(d) { return y(d.val)-1; })
             svg.select(".yaxis").transition().duration(1000).call(yAxis);
 
         }
