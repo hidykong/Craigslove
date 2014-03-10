@@ -112,6 +112,7 @@ var color3 = d3.scale.linear()
           .append("path")
           .attr("d", path)
           .on("click",function(d){return change("state",d.properties.name);})
+          .style("opacity","0")
           .style("fill", function(d){
             var value = d.properties.value1;
 
@@ -121,6 +122,11 @@ var color3 = d3.scale.linear()
               return "#ccc";
             }
           });//fill
+        svg.selectAll("path")
+          .transition()
+          .delay(function(d,i) { return i*30;})
+          .duration(1000)
+          .style("opacity","1");
 
 
 
@@ -129,6 +135,7 @@ var color3 = d3.scale.linear()
           .data(data2)
           .enter()
           .append("circle")
+          .attr("class","cityCircle")
           .attr("cx", function(d) {
             return projection([d.lon, d.lat])[0];
           })
@@ -152,9 +159,14 @@ var color3 = d3.scale.linear()
           .duration(100)
           .style("fill", "#000000");
         })
-        .on("click",function(d){return change("city",d);});
+        .on("click",function(d){return change("city",d);}).style("opacity","0");
 
 
+        svg.selectAll(".cityCircle")
+          .transition()
+          .delay(2000)
+          .duration(500)
+          .style("opacity","1");
         // buttons         
         var seeking = d3.select("#seeking")
           .on("click", function () {
@@ -294,7 +306,8 @@ var color3 = d3.scale.linear()
           .attr("class","wordList")
           .attr("x",1050)
           .attr("y",function(d,i){return 200+(i*30);})
-          .text(function(d){return d.toLowerCase();})
+          .style("opacity","0")
+          .text(function(d){return d.toLowerCase();});
         svg.selectAll(".countryButton")
           .data([""])
           .enter()
@@ -305,8 +318,10 @@ var color3 = d3.scale.linear()
           .attr("y", height+90)
           .attr("height",10)
           .attr("fill", "blue")
+          .style("opacity","0")
           .on("click", function(d,i) { return change("country","USA"); });
 
+        change("country","USA",1500,1000);
         //svg.selectAll(".cityButton")
         //  .data(city_list)
         //  .enter().append("rect")
@@ -324,9 +339,10 @@ var color3 = d3.scale.linear()
         //d3.select("input").property("checked", true).each(change);
         //}, 1000);
 
-        function change(type,name) {
+        function change(type,name,b,a) {
           //alert(name);
-
+          a = typeof a !== 'undefined' ? a : 1000;
+          b = typeof b !== 'undefined' ? b : 0;
           var ob;
 
           if ( type == "state" ){
@@ -372,7 +388,7 @@ var color3 = d3.scale.linear()
               .map(function(d) { return d.letter; }))
             .copy();
 
-          var transition = svg.transition().duration(1000),
+          var transition = svg.transition().duration(a),
               delay = function(d, i) { return i * 50; };
 
           //transition.selectAll(".bar")
@@ -387,25 +403,41 @@ var color3 = d3.scale.linear()
             nameAr.push("USA");
           }
 
+          svg.selectAll(".graphLabels")
+            .transition()
+            .duration(500)
+            .delay(0)
+            .style("opacity","0");
 
           svg.selectAll(".graphLabels")
             .data(nameAr)
             .transition()
-            .duration(1000)
+            .duration(500)
+            .delay(500)
+            .style("opacity","1")
             .text(function(d) {return d;});
+
+          svg.selectAll(".wordList")
+            .transition()
+            .duration(500)
+            .delay(0)
+            .style("opacity","0");
 
           svg.selectAll(".wordList")
             .data(termVals)
             .transition()
-            .duration(1000)
-            .text(function(d){return d.word+" ("+d.val+")";})
-            .attr("font-size", function(d,i){return 24-(3*i)+"px"});
+            .duration(500)
+            .delay(500)
+            .attr("font-size", function(d,i){return 24-(3*i)+"px"})
+            .style("opacity","1")
+            .text(function(d){return d.word+" ("+d.val+")";});
 
 
           svg.selectAll(".bar")
             .data(yvals)
             .transition()
-            .duration(1000)
+            .delay(b)
+            .duration(a)
             .attr("height", function(d) { return height - y(d.val); })
             .attr("y", function(d) { return y(d.val)-1; })
             svg.select(".yaxis").transition().duration(1000).call(yAxis);
