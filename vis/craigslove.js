@@ -139,11 +139,15 @@ var color3 = d3.scale.linear()
           //color it red when hover -> we can change this later to display the information
           .on("mouseover", function(d){
             d3.select(this)
-            .attr("fill", "yellow");
+          .transition()
+          .duration(100)
+            .style("fill", "#676767");
           })
         .on("mouseout", function(d){
           d3.select(this)
-          .attr("fill", "white");
+          .transition()
+          .duration(100)
+          .style("fill", "#000000");
         })
         .on("click",function(d){return change("city",d);});
 
