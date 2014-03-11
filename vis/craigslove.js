@@ -33,7 +33,7 @@ var y = d3.scale.linear()
 
   var projection = d3.geo.albersUsa()
 .translate([w/2, h/2])
-  .scale([700]);
+  .scale([800]);
 
   //Define path generator
 var path = d3.geo.path()
@@ -60,8 +60,10 @@ var color3 = d3.scale.linear()
 
       d3.csv("data/city_output.csv", function(data2) {
 
+        usaOb = data[data.length-1];
+
         //merge state info and GeoJSON
-        for (var i = 0; i < data.length; i++){
+        for (var i = 0; i < data.length-1; i++){
 
           var dataState = data[i].state;
           //seeking (women/men)
