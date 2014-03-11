@@ -36,6 +36,74 @@ var y = d3.scale.linear()
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+  //
+  //
+  svg.append("text")
+    .attr("font-size","155")
+    .attr("class","preStuff")
+    .attr("fill","#cfd2d1")
+    .attr("text-anchor","middle")
+    .attr("x",(width+margin.left+margin.right)*.35)
+    .attr("y",(height+margin.top+margin.bottom)*.4)
+    .text("4")
+  svg.append("text")
+    .attr("font-size","80")
+    .attr("class","preStuff")
+    .attr("fill","#cfd2d1")
+    .attr("text-anchor","middle")
+    .attr("x",(width+margin.left+margin.right)*.35-90)
+    .attr("y",(height+margin.top+margin.bottom)*.4-70)
+    .text("m")
+  svg.append("text")
+    .attr("font-size","80")
+    .attr("class","preStuff")
+    .attr("fill","#cfd2d1")
+    .attr("text-anchor","middle")
+    .attr("x",(width+margin.left+margin.right)*.35-90)
+    .attr("y",(height+margin.top+margin.bottom)*.4+20)
+    .text("w")
+  svg.append("text")
+    .attr("font-size","80")
+    .attr("class","preStuff")
+    .attr("fill","#cfd2d1")
+    .attr("text-anchor","middle")
+    .attr("x",(width+margin.left+margin.right)*.35+93)
+    .attr("y",(height+margin.top+margin.bottom)*.4-70)
+    .text("m")
+  svg.append("text")
+    .attr("font-size","80")
+    .attr("class","preStuff")
+    .attr("fill","#cfd2d1")
+    .attr("text-anchor","middle")
+    .attr("x",(width+margin.left+margin.right)*.35+93)
+    .attr("y",(height+margin.top+margin.bottom)*.4+20)
+    .text("w")
+
+  svg.append("text")
+    .attr("font-size","40")
+    .attr("class","preStuff")
+    .attr("fill","#cfd2d1")
+    .attr("text-anchor","middle")
+    .attr("x",(width+margin.left+margin.right)*.35)
+    .attr("y",(height+margin.top+margin.bottom)*.4+200)
+    .text("explore craigslist personal ads")
+  svg.append("text")
+    .attr("font-size","20")
+    .attr("class","preStuff")
+    .attr("fill","#cfd2d1")
+    .attr("text-anchor","middle")
+    .attr("x",(width+margin.left+margin.right)*.35)
+    .attr("y",(height+margin.top+margin.bottom)*.4+250)
+    .text("(click to begin)")
+
+
+  svg.append("rect")
+    .attr("width",width+margin.left+margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .style("opacity","0")
+    .on("click",function(){
+
+
   //1 = seeking; 2 = sought; 3 = orientation
   var heatmap = 1;
   var logValue = 1;
@@ -216,8 +284,8 @@ var color3 = d3.scale.linear()
         svg.selectAll("path")
           .transition()
           // This should be i*30
-          .delay(function(d,i) { return i*30;})
-          .duration(1000)
+          .delay(function(d,i) { return i*20;})
+          .duration(500)
           .style("opacity","1");
 
         //circle for the cities
@@ -264,7 +332,7 @@ var color3 = d3.scale.linear()
         svg.selectAll(".cityCircle")
           .transition()
           // 2000 
-          .delay(2000)
+          .delay(1000)
           .duration(500)
           .style("opacity","1");
         // buttons         
@@ -293,6 +361,7 @@ var color3 = d3.scale.linear()
         .attr("width","200")
         .attr("height",function(){return selectorButtonheight;})
         .style("fill",function(d,i){return "url(#gradient"+i+")";})
+        .style("opacity","0")
         .attr("x",-50)
         .attr("y",function(d,i){return 70+((selectorButtonheight+30)*i);})
         .on("click", function (d,i) {
@@ -300,6 +369,10 @@ var color3 = d3.scale.linear()
           drawMap(i+1);
           heatmap=i+1;
         });
+      svg.selectAll(".selectorButtons")
+        .transition()
+        .duration(2000)
+        .style("opacity","1");
       svg.selectAll(".selectorText")
         .data(buttonData)
         .enter()
@@ -309,10 +382,15 @@ var color3 = d3.scale.linear()
         .attr("font-size", "18px")
         .attr("x",50)
         .attr("y",function(d,i){return 95+((selectorButtonheight+30)*i);})
+        .style("opacity","0")
         .text(function(d){return d["name"]})
         .on("click", function (d,i) {
           drawMap(i+1);
         });
+      svg.selectAll(".selectorText")
+        .transition()
+        .duration(2000)
+        .style("opacity","1");
       svg.selectAll(".selectorTextFirst")
         .data(buttonData)
         .enter()
@@ -321,10 +399,15 @@ var color3 = d3.scale.linear()
         .attr("font-size", "24px")
         .attr("x",-50)
         .attr("y",function(d,i){return 135+((selectorButtonheight+30)*i);})
+        .style("opacity","0")
         .text(function(d){return d["first"]})
         .on("click", function (d,i) {
           drawMap(i+1);
         });
+      svg.selectAll(".selectorTextFirst")
+        .transition()
+        .duration(2000)
+        .style("opacity","1");
       svg.selectAll(".selectorTextSecond")
         .data(buttonData)
         .enter()
@@ -334,10 +417,15 @@ var color3 = d3.scale.linear()
         .attr("font-size", "24px")
         .attr("x",150)
         .attr("y",function(d,i){return 135+((selectorButtonheight+30)*i);})
+        .style("opacity","0")
         .text(function(d){return d["second"]})
         .on("click", function (d,i) {
           drawMap(i+1);
         });
+      svg.selectAll(".selectorTextSecond")
+        .transition()
+        .duration(2000)
+        .style("opacity","1");
         //check for circle clicks
         var drawMap = function(hm) {
 
@@ -438,7 +526,7 @@ var color3 = d3.scale.linear()
           .attr("y", 6)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
-          .text("Frequency");
+          .text("number of posts");
 
         svg.selectAll(".bar")
           .data(yvals)
@@ -654,4 +742,5 @@ var color3 = d3.scale.linear()
 
   }); //end of state.csv
 
+  });
 
