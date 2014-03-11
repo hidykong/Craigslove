@@ -42,7 +42,7 @@ var path = d3.geo.path()
   //Define quantize scale to sort data values into buckets of color
   //Coloring is off because I am using a single city's value as max rather than the state's -> will have to change later
 var color1 = d3.scale.linear()
-  .range (["rgb(251,20,71)","rgb(0,27,137)"]);
+  .range (["rgb(0,27,137)","rgb(251,20,71)"]);
 var color2 = d3.scale.linear()
   .range (["rgb(81,167,249)", "rgb(222,106,16)"]);
 var color3 = d3.scale.linear()
@@ -61,17 +61,39 @@ var color3 = d3.scale.linear()
       d3.csv("data/city_output.csv", function(data2) {
 
         usaOb = data[data.length-1];
+        USratio1 = parseFloat(+usaOb.w4m + +usaOb.w4w)/(+usaOb.m4w + +usaOb.m4m);
+        USratio2 = parseFloat(+usaOb.m4w + +usaOb.w4w)/(+usaOb.m4m + +usaOb.w4m);
+        USratio3 = parseFloat(+usaOb.m4m + +usaOb.w4w)/(+usaOb.m4w + +usaOb.w4m);
 
         //merge state info and GeoJSON
+        minRatio1 = 0;
+        minRatio2 = 0;
+        minRatio3 = 0;
+
+        maxRatio1 = 0;
+        maxRatio2 = 0;
+        maxRatio3 = 0;
+
         for (var i = 0; i < data.length-1; i++){
 
           var dataState = data[i].state;
           //seeking (women/men)
           var dataValue1 = parseFloat(+data[i].w4m + +data[i].w4w)/(+data[i].m4w + +data[i].m4m);
+          dataValue1 = dataValue1 - USratio1;
           //sought (women/men)
           var dataValue2 = parseFloat(+data[i].m4w + +data[i].w4w)/(+data[i].m4m + +data[i].w4m);
+          dataValue2 = dataValue2 - USratio2;
           //orientation (homo/hetero)
           var dataValue3 = parseFloat(+data[i].m4m + +data[i].w4w)/(+data[i].m4w + +data[i].w4m);
+          dataValue3 = dataValue3 - USratio3;
+
+          minRatio1 = d3.min([minRatio1, dataValue1]);
+          minRatio2 = d3.min([minRatio2, dataValue2]);
+          minRatio3 = d3.min([minRatio3, dataValue3]);
+
+          maxRatio1 = d3.max([maxRatio1, dataValue1]);
+          maxRatio2 = d3.max([maxRatio2, dataValue2]);
+          maxRatio3 = d3.max([maxRatio3, dataValue3]);
 
           //loop through states
           for (var j= 0; j < json.features.length; j++) {
@@ -87,22 +109,12 @@ var color3 = d3.scale.linear()
           }
         } //end of merge
 
-
         //seeking (women/men)
-        color1.domain([
-            d3.min(data, function(d){ return (+d.w4m + +d.w4w)/(+d.m4w + +d.m4m);}),
-            d3.max(data, function(d){ return (+d.w4m + +d.w4w)/(+d.m4w + +d.m4m);})
-            ]);
+        color1.domain([minRatio1, maxRatio1]);
         //sought (women/men)
-        color2.domain([
-            d3.min(data, function(d){ return (+d.m4w + +d.w4w)/(+d.m4m + +d.w4m);}),
-            d3.max(data, function(d){ return (+d.m4w + +d.w4w)/(+d.m4m + +d.w4m);})
-            ]);
+        color2.domain([minRatio2, maxRatio2]);
         //orientation (homo/hetero)
-        color3.domain([
-            d3.min(data, function(d){ return (+d.m4m + +d.w4w)/(+d.m4w + +d.w4m);}),
-            d3.max(data, function(d){ return (+d.m4m + +d.w4w)/(+d.m4w + +d.w4m);})
-            ]);
+        color3.domain([minRatio3, maxRatio3]);
 
         //this is the section we have to refactor to change later
         svg.selectAll("path")
@@ -111,6 +123,29 @@ var color3 = d3.scale.linear()
           .append("path")
           .attr("d", path)
           .on("click",function(d){return change("state",d.properties.name);})
+          .on("mouseover", function(d){
+            d3.select(this)
+            .transition()
+            .duration(100)
+            .style("fill", function() {
+              return d3.rgb(d3.select(this).style("fill")).brighter(2);
+            });
+          })
+          .on("mouseout", function(d){
+            d3.select(this)
+            .transition()
+            .duration(100)
+            .style("fill", function(d){
+            if (heatmap == 1) {
+              return color1(d.properties.value1);
+            } else if (heatmap == 2) {
+              return color2(d.properties.value2);
+            } else if (heatmap == 3) {
+              return color3(d.properties.value3);
+            }
+          });
+          })
+
           .style("fill", function(d){
             var value = d.properties.value1;
 
