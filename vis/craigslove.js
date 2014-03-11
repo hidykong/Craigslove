@@ -59,7 +59,7 @@ var color3 = d3.scale.linear()
 
   var radiusScale = d3.scale.linear()
 .domain([0, 2000])
-  .range([2, 5], 0.05);
+  .range([3, 5], 0.05);
 
   //Create SVG element
 
@@ -69,10 +69,12 @@ var color3 = d3.scale.linear()
 
       d3.csv("data/better_city_output2.csv", function(data2) {
 
+
+        var heatmap=1;
         //Make buttons
-        buttonData = [ {"name":"seeking","first":"men","second":"women","color1":"#fb1447","color2":"#001B89"},
+        buttonData = [ {"name":"seeking","first":"men","second":"women","color2":"#fb1447","color1":"#001B89"},
                        {"name":"sought","first":"men","second":"women","color1":"#51A7F9","color2":"#DE6A10"},
-                       {"name":"orientation","first":"same","second":"opposite","color1":"#DAB372","color2":"#712575"}];
+                       {"name":"orientation","first":"same","second":"opposite","color2":"#DAB372","color1":"#712575"}];
 
       for ( i in buttonData ) {
         var gradient = svg.append("svg:defs")
@@ -171,6 +173,13 @@ var color3 = d3.scale.linear()
           .on("click",function(d){return change("state",d.properties.name);})
           .style("opacity","0")
           .on("mouseover", function(d){
+
+          svg.selectAll(".topBar")
+            .data([d.properties.name.toLowerCase()])
+            .transition()
+            .duration(500)
+            .style("opacity","1")
+            .text(function(d) {return d;});
             d3.select(this)
             .transition()
             .duration(100)
@@ -179,9 +188,11 @@ var color3 = d3.scale.linear()
             });
           })
           .on("mouseout", function(d){
+          svg.selectAll(".topBar")
+          .text("");
             d3.select(this)
             .transition()
-            .duration(100)
+            .duration(300)
             .style("fill", function(d){
             if (heatmap == 1) {
               return color1(d.properties.value1);
@@ -227,12 +238,21 @@ var color3 = d3.scale.linear()
           .style("stroke-width", 0)
           //color it red when hover -> we can change this later to display the information
           .on("mouseover", function(d){
+                      svg.selectAll(".topBar")
+                        .data([d.city.toLowerCase()+", "+d.state.toLowerCase()])
+                        .transition()
+                        .duration(500)
+                        .style("opacity","1")
+                        .text(function(d) {return d;});
+
             d3.select(this)
           .transition()
           .duration(100)
             .style("fill", "#676767");
           })
         .on("mouseout", function(d){
+          svg.selectAll(".topBar")
+          .text("");
           d3.select(this)
           .transition()
           .duration(100)
@@ -250,14 +270,17 @@ var color3 = d3.scale.linear()
         // buttons         
         var seeking = d3.select("#seeking")
           .on("click", function () {
+            heatmap=1;
             drawMap(1);
           });
         var sought = d3.select("#sought")
           .on("click", function () {
+            heatmap=2;
             drawMap(2);
           });
         var orient = d3.select("#orient")
           .on("click", function () {
+            heatmap=3;
             drawMap(3);
           });
 
@@ -273,7 +296,9 @@ var color3 = d3.scale.linear()
         .attr("x",-50)
         .attr("y",function(d,i){return 70+((selectorButtonheight+30)*i);})
         .on("click", function (d,i) {
+          heatmap=i+1;
           drawMap(i+1);
+          heatmap=i+1;
         });
       svg.selectAll(".selectorText")
         .data(buttonData)
@@ -314,14 +339,16 @@ var color3 = d3.scale.linear()
           drawMap(i+1);
         });
         //check for circle clicks
-        var drawMap = function(heatmap) {
+        var drawMap = function(hm) {
 
 
+          heatmap=hm;
 
-          if (heatmap == 1) {
+          var mcDt = 500;
+          if (hm == 1) {
             svg.selectAll("path")
               .transition()
-              .duration(750)
+              .duration(mcDt)
               .ease("linear")
               .style("fill", function(d){
                 var value = d.properties.value1;
@@ -333,10 +360,10 @@ var color3 = d3.scale.linear()
                 }
 
               }); //fill
-          } else if (heatmap == 2) {
+          } else if (hm == 2) {
             svg.selectAll("path")
               .transition()
-              .duration(750)
+              .duration(mcDt)
               .ease("linear")
               .style("fill", function(d){
                 var value = d.properties.value2;
@@ -348,10 +375,10 @@ var color3 = d3.scale.linear()
                 }
 
               }); //fill
-          } else if (heatmap == 3) {
+          } else if (hm == 3) {
             svg.selectAll("path")
               .transition()
-              .duration(750)
+              .duration(mcDt)
               .ease("linear")
               .style("fill", function(d){
                 var value = d.properties.value3;
@@ -364,6 +391,8 @@ var color3 = d3.scale.linear()
 
               }); //fill
           }
+                    heatmap=hm;
+
         };
         // -- HIDY CODE END
         // -- BEN CODE BEGIN
@@ -456,12 +485,26 @@ var color3 = d3.scale.linear()
           .enter()
           .append("text")
           .attr("class","displayBar")
+          .attr("id",function(d){return d;})
           .attr("x",function(d,i){return labelXoffset-90+(i*90);})
           .attr("y",labelYoffset-30)
           .attr("text-anchor","middle")
           .attr("font-size", "18px")
+          .style("font-weight","100")
           .text(function(d){return d;});
+        svg.selectAll(".topBar")
+          .data([""])
+          .enter()
+          .append("text")
+          .attr("class","topBar")
+          .attr("x",mapXOffset)
+          .attr("y",80)
+          .attr("font-size", "24px")
+          .attr("text-anchor","middle");
 
+        svg.selectAll("#country")
+          .style("font-weight","bold")
+          .on("click",function(){return change("country","USA");});
         change("country","USA",1500,1000);
         //change("country","USA",0,0);
         //svg.selectAll(".cityButton")
@@ -488,18 +531,36 @@ var color3 = d3.scale.linear()
           var ob;
 
           if ( type == "state" ){
+        svg.selectAll("#state")
+          .style("font-weight","bold")
+        svg.selectAll("#city")
+          .style("font-weight","100")
+        svg.selectAll("#country")
+          .style("font-weight","100")
             for ( i in data ){
               if (data[i]["city"] == name) {
                 ob = data[i];
               }
             }
           } else if ( type == "city" ) {
+        svg.selectAll("#city")
+          .style("font-weight","bold")
+        svg.selectAll("#state")
+          .style("font-weight","100")
+        svg.selectAll("#country")
+          .style("font-weight","100")
             for ( i in data2 ){
               if (data2[i][type] == name.city && data2[i]["state"] == name.state) {
                 ob = data2[i];
               }
             }
           } else if (type == "country") {
+        svg.selectAll("#country")
+          .style("font-weight","bold")
+        svg.selectAll("#state")
+          .style("font-weight","100")
+        svg.selectAll("#city")
+          .style("font-weight","100")
             for ( i in data ){
               if (data[i]["city"] == name){
                 ob = data[i];
