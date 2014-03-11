@@ -86,6 +86,15 @@ body {
 .displayBar {
   fill: #cfd2d1;
 }
+.selectorText {
+  fill: #cfd2d1;
+}
+.selectorTextFirst {
+  fill: #cfd2d1;
+}
+.selectorTextSecond {
+  fill: #cfd2d1;
+}
 .bar {
   fill: #52A7FA;
 }

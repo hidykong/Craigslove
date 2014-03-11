@@ -5,9 +5,9 @@ var margin = {top: 20, right: 80, bottom: 100, left: 80},
     width = w - margin.left - margin.right,
     height = h - margin.top - margin.bottom;
 
-var mapXOffset=500;
+var mapXOffset=700;
 var barHeight = height*0.4;
-var barXoffset=1100;
+var barXoffset=1250;
 var barYoffset=150;
 var wordListXoffset=barXoffset+(width*0.15*0.5);
 var wordListYoffset=barYoffset+barHeight+80;
@@ -68,6 +68,32 @@ var color3 = d3.scale.linear()
     d3.json("data/us-states.json", function(json) {
 
       d3.csv("data/better_city_output2.csv", function(data2) {
+
+        //Make buttons
+        buttonData = [ {"name":"seeking","first":"men","second":"women","color1":"#fb1447","color2":"#001B89"},
+                       {"name":"sought","first":"men","second":"women","color1":"#51A7F9","color2":"#DE6A10"},
+                       {"name":"orientation","first":"same","second":"opposite","color1":"#DAB372","color2":"#712575"}];
+
+      for ( i in buttonData ) {
+        var gradient = svg.append("svg:defs")
+        .append("svg:linearGradient")
+        .attr("id", "gradient"+i)
+        .attr("x1", "0%")
+        .attr("y1", "0%")
+        .attr("x2", "100%")
+        .attr("y2", "0%")
+        .attr("spreadMethod", "pad");
+
+      gradient.append("svg:stop")
+        .attr("offset", "0%")
+        .attr("stop-color", buttonData[i]["color1"])
+        .attr("stop-opacity", 1);
+
+      gradient.append("svg:stop")
+        .attr("offset", "100%")
+        .attr("stop-color", buttonData[i]["color2"])
+        .attr("stop-opacity", 1);
+      }
 
     usaOb = data[data.length-1];
 
@@ -180,23 +206,71 @@ var color3 = d3.scale.linear()
         // buttons         
         var seeking = d3.select("#seeking")
           .on("click", function () {
-            heatmap = 1;
-            drawMap();
+            drawMap(1);
           });
         var sought = d3.select("#sought")
           .on("click", function () {
-            heatmap = 2;
-            drawMap();
+            drawMap(2);
           });
         var orient = d3.select("#orient")
           .on("click", function () {
-            heatmap = 3;
-            drawMap();
+            drawMap(3);
           });
 
-
+      var selectorButtonheight = 100;
+      svg.selectAll(".selectorButtons")
+        .data(buttonData)
+        .enter()
+        .append("rect")
+        .attr("class","selectorButtons")
+        .attr("width","200")
+        .attr("height",function(){return selectorButtonheight;})
+        .style("fill",function(d,i){return "url(#gradient"+i+")";})
+        .attr("x",-50)
+        .attr("y",function(d,i){return 70+((selectorButtonheight+30)*i);})
+        .on("click", function (d,i) {
+          drawMap(i+1);
+        });
+      svg.selectAll(".selectorText")
+        .data(buttonData)
+        .enter()
+        .append("text")
+        .attr("class","selectorText")
+        .attr("text-anchor","middle")
+        .attr("font-size", "18px")
+        .attr("x",50)
+        .attr("y",function(d,i){return 95+((selectorButtonheight+30)*i);})
+        .text(function(d){return d["name"]})
+        .on("click", function (d,i) {
+          drawMap(i+1);
+        });
+      svg.selectAll(".selectorTextFirst")
+        .data(buttonData)
+        .enter()
+        .append("text")
+        .attr("class","selectorTextFirst")
+        .attr("font-size", "24px")
+        .attr("x",-50)
+        .attr("y",function(d,i){return 135+((selectorButtonheight+30)*i);})
+        .text(function(d){return d["first"]})
+        .on("click", function (d,i) {
+          drawMap(i+1);
+        });
+      svg.selectAll(".selectorTextSecond")
+        .data(buttonData)
+        .enter()
+        .append("text")
+        .attr("class","selectorTextSecond")
+        .attr("text-anchor","end")
+        .attr("font-size", "24px")
+        .attr("x",150)
+        .attr("y",function(d,i){return 135+((selectorButtonheight+30)*i);})
+        .text(function(d){return d["second"]})
+        .on("click", function (d,i) {
+          drawMap(i+1);
+        });
         //check for circle clicks
-        var drawMap = function() {
+        var drawMap = function(heatmap) {
 
 
 
