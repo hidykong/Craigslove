@@ -57,6 +57,16 @@ body {
   font: 10px Exo, sans-serif;
   color:#cfd2d1;
 }
+.yaxis line,
+.yaxis path {
+
+  fill: none;
+  stroke: #cfd2d1;
+  shape-rendering: crispEdges;
+}
+.yaxis {
+  fill: #cfd2d1;
+}
 .axis line,
 .axis path {
 
@@ -71,6 +81,9 @@ body {
   fill: #cfd2d1;
 }
 .graphLabels {
+  fill: #cfd2d1;
+}
+.displayBar {
   fill: #cfd2d1;
 }
 .bar {

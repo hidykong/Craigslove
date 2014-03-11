@@ -1,17 +1,25 @@
-var w = 1400;
-var h = 500;
+var w = 2000;
+var h = 800;
 
 var margin = {top: 20, right: 80, bottom: 100, left: 80},
     width = w - margin.left - margin.right,
     height = h - margin.top - margin.bottom;
 
+var mapXOffset=500;
+var barHeight = height*0.4;
+var barXoffset=1100;
+var barYoffset=150;
+var wordListXoffset=barXoffset+(width*0.15*0.5);
+var wordListYoffset=barYoffset+barHeight+80;
+var labelXoffset=barXoffset+(width*0.15*0.5);
+var labelYoffset=barYoffset-20;
 var formatPercent = d3.format(".0%");
 
 var x = d3.scale.ordinal()
   .rangeRoundBands([0, width*0.15], .1, 1);
 
 var y = d3.scale.linear()
-  .range([height, 0]);
+  .range([barHeight, 0]);
 
   var xAxis = d3.svg.axis()
 .scale(x)
@@ -33,8 +41,8 @@ var y = d3.scale.linear()
   var logValue = 1;
 
   var projection = d3.geo.albersUsa()
-.translate([w/2, h/2])
-  .scale([800]);
+.translate([mapXOffset, h/2])
+  .scale([1300]);
 
   //Define path generator
 var path = d3.geo.path()
@@ -55,18 +63,18 @@ var color3 = d3.scale.linear()
 
   //Create SVG element
 
-  d3.csv("data/output_state.csv", function(data) {
+  d3.csv("data/better_output_state.csv", function(data) {
 
     d3.json("data/us-states.json", function(json) {
 
-      d3.csv("data/city_output.csv", function(data2) {
+      d3.csv("data/better_city_output2.csv", function(data2) {
 
-        usaOb = data[data.length-1];
+    usaOb = data[data.length-1];
 
         //merge state info and GeoJSON
-        for (var i = 0; i < data.length-1; i++){
+        for (var i = 0; i < data.length; i++){
 
-          var dataState = data[i].state;
+          var dataState = data[i].city;
           //seeking (women/men)
           var dataValue1 = parseFloat(+data[i].w4m + +data[i].w4w)/(+data[i].m4w + +data[i].m4m);
           //sought (women/men)
@@ -124,6 +132,7 @@ var color3 = d3.scale.linear()
           });//fill
         svg.selectAll("path")
           .transition()
+          // This should be i*30
           .delay(function(d,i) { return i*30;})
           .duration(1000)
           .style("opacity","1");
@@ -164,6 +173,7 @@ var color3 = d3.scale.linear()
 
         svg.selectAll(".cityCircle")
           .transition()
+          // 2000 
           .delay(2000)
           .duration(500)
           .style("opacity","1");
@@ -265,15 +275,16 @@ var color3 = d3.scale.linear()
         });
         var mmv = d3.max(yvals, function(d) { return parseInt(d.val,10); })
           x.domain(xDom);
-        y.domain([0,20]);
+        y.domain([0,180000]);
 
         svg.append("g")
           .attr("class", "x axis")
-          .attr("transform", "translate(0," + height + ")")
+          .attr("transform", "translate("+barXoffset+"," + (barYoffset+barHeight) + ")")
           .call(xAxis);
 
         svg.append("g")
-          .attr("class", "y axis")
+          .attr("class", "yaxis")
+          .attr("transform", "translate("+barXoffset+","+barYoffset+")")
           .call(yAxis)
           .append("text")
           .attr("transform", "rotate(-90)")
@@ -286,26 +297,28 @@ var color3 = d3.scale.linear()
           .data(yvals)
           .enter().append("rect")
           .attr("class", "bar")
-          .attr("x", function(d) { return x(d.tag); })
+          .attr("x", function(d) { return barXoffset+x(d.tag); })
           .attr("width", x.rangeBand())
-          .attr("y", function(d) { return y(d.val); })
-          .attr("height", function(d) { return height - y(d.val); });
+          .attr("y", function(d) { return barYoffset+y(d.val); })
+          .attr("height", function(d) { return barHeight - y(d.val); });
         svg.selectAll(".graphLabels")
           .data([""])
           .enter()
           .append("text")
           .attr("class","graphLabels")
-          .attr("x",100)
-          .attr("y",-2)
+          .attr("x",labelXoffset)
+          .attr("y",labelYoffset)
+          .attr("text-anchor","middle")
           .text(function(d){return d.toLowerCase();})
-          .attr("font-size", "18px");
+          .attr("font-size", "24px");
         svg.selectAll(".wordList")
           .data(["","","","",""])
           .enter()
           .append("text")
           .attr("class","wordList")
-          .attr("x",1050)
-          .attr("y",function(d,i){return 200+(i*30);})
+          .attr("x",wordListXoffset)
+          .attr("y",function(d,i){return wordListYoffset+(i*30);})
+          .attr("text-anchor","middle")
           .style("opacity","0")
           .text(function(d){return d.toLowerCase();});
         svg.selectAll(".countryButton")
@@ -320,8 +333,19 @@ var color3 = d3.scale.linear()
           .attr("fill", "blue")
           .style("opacity","0")
           .on("click", function(d,i) { return change("country","USA"); });
+        svg.selectAll(".displayBar")
+          .data(["city","state","country"])
+          .enter()
+          .append("text")
+          .attr("class","displayBar")
+          .attr("x",function(d,i){return labelXoffset-90+(i*90);})
+          .attr("y",labelYoffset-30)
+          .attr("text-anchor","middle")
+          .attr("font-size", "18px")
+          .text(function(d){return d;});
 
         change("country","USA",1500,1000);
+        //change("country","USA",0,0);
         //svg.selectAll(".cityButton")
         //  .data(city_list)
         //  .enter().append("rect")
@@ -347,7 +371,7 @@ var color3 = d3.scale.linear()
 
           if ( type == "state" ){
             for ( i in data ){
-              if (data[i][type] == name) {
+              if (data[i]["city"] == name) {
                 ob = data[i];
               }
             }
@@ -400,7 +424,7 @@ var color3 = d3.scale.linear()
           } else if ( type == "city" ) {
             nameAr.push(name.city.toLowerCase()+", "+name.state.toLowerCase());
           } else if (type == "country") {
-            nameAr.push("USA");
+            nameAr.push("USA".toLowerCase());
           }
 
           svg.selectAll(".graphLabels")
@@ -438,8 +462,8 @@ var color3 = d3.scale.linear()
             .transition()
             .delay(b)
             .duration(a)
-            .attr("height", function(d) { return height - y(d.val); })
-            .attr("y", function(d) { return y(d.val)-1; })
+            .attr("height", function(d) { return barHeight - y(d.val); })
+            .attr("y", function(d) { return barYoffset+y(d.val)-1; })
             svg.select(".yaxis").transition().duration(1000).call(yAxis);
 
         }
