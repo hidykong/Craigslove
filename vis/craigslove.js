@@ -60,12 +60,14 @@ var color3 = d3.scale.linear()
 
       d3.csv("data/city_output.csv", function(data2) {
 
+        //you can delete the US portion since we're not using it.
         usaOb = data[data.length-1];
         USratio1 = parseFloat(+usaOb.w4m + +usaOb.w4w)/(+usaOb.m4w + +usaOb.m4m);
         USratio2 = parseFloat(+usaOb.m4w + +usaOb.w4w)/(+usaOb.m4m + +usaOb.w4m);
         USratio3 = parseFloat(+usaOb.m4m + +usaOb.w4w)/(+usaOb.m4w + +usaOb.w4m);
+        //delete till here
 
-        //merge state info and GeoJSON
+        //keep track of mins and maxs
         minRatio1 = 0;
         minRatio2 = 0;
         minRatio3 = 0;
@@ -74,18 +76,19 @@ var color3 = d3.scale.linear()
         maxRatio2 = 0;
         maxRatio3 = 0;
 
+        //merge state info and GeoJSON
         for (var i = 0; i < data.length-1; i++){
 
           var dataState = data[i].state;
           //seeking (women/men)
           var dataValue1 = parseFloat(+data[i].w4m + +data[i].w4w)/(+data[i].m4w + +data[i].m4m);
-          dataValue1 = dataValue1 - USratio1;
+          //dataValue1 = dataValue1 - USratio1;
           //sought (women/men)
           var dataValue2 = parseFloat(+data[i].m4w + +data[i].w4w)/(+data[i].m4m + +data[i].w4m);
-          dataValue2 = dataValue2 - USratio2;
+          //dataValue2 = dataValue2 - USratio2;
           //orientation (homo/hetero)
           var dataValue3 = parseFloat(+data[i].m4m + +data[i].w4w)/(+data[i].m4w + +data[i].w4m);
-          dataValue3 = dataValue3 - USratio3;
+          //dataValue3 = dataValue3 - USratio3;
 
           minRatio1 = d3.min([minRatio1, dataValue1]);
           minRatio2 = d3.min([minRatio2, dataValue2]);
@@ -109,8 +112,16 @@ var color3 = d3.scale.linear()
           }
         } //end of merge
 
+        //finding the furthest point from the average
+        /*
+        rangeRatio1 = d3.max([Math.abs(minRatio1), Math.abs(maxRatio1)]);
+        rangeRatio2 = d3.max([Math.abs(minRatio2), Math.abs(maxRatio2)]);
+        rangeRatio3 = d3.max([Math.abs(minRatio3), Math.abs(maxRatio3)]);
+        */
+
         //seeking (women/men)
         color1.domain([minRatio1, maxRatio1]);
+        //color1.domain([-rangeRatio1, rangeRatio1]); //puts the mean in the center of the color scale
         //sought (women/men)
         color2.domain([minRatio2, maxRatio2]);
         //orientation (homo/hetero)
@@ -156,9 +167,7 @@ var color3 = d3.scale.linear()
             }
           });//fill
 
-
-
-        //we can either separate state.csv or keep everything under city.
+        //circle for the cities
         svg.selectAll("circle")
           .data(data2)
           .enter()
